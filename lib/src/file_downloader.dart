@@ -1107,7 +1107,7 @@ Future<http.Response> _doRequest(
             headers: request.headers, body: request.post),
         _ => Future.value(response)
       };
-      if ([200, 201, 202, 203, 204, 205, 206, 404]
+      if ([200, 201, 202, 203, 204, 205, 206, 208, 404]
           .contains(response.statusCode)) {
         return response;
       }

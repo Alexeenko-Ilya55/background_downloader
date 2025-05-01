@@ -69,7 +69,7 @@ Future<void> doParallelDownloadTask(
         .head(Uri.parse(task.url), headers: task.headers);
     responseHeaders = response.headers;
     responseStatusCode = response.statusCode;
-    if ([200, 201, 202, 203, 204, 205, 206].contains(response.statusCode)) {
+    if ([200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210].contains(response.statusCode)) {
       // get suggested filename if needed, and change task and parentTask
       if (!task.hasFilename) {
         task = (await taskWithSuggestedFilename(task, response.headers, true))

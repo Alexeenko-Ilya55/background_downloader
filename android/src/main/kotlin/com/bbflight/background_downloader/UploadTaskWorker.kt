@@ -62,7 +62,7 @@ class UploadTaskWorker(applicationContext: Context, workerParams: WorkerParamete
                 extractResponseBody(connection)
                 extractResponseHeaders(connection.headerFields)
                 responseStatusCode = connection.responseCode
-                if (connection.responseCode in 200..206) {
+                if (connection.responseCode in 200..210) {
                     Log.i(
                         TAG, "Successfully uploaded taskId ${task.taskId}"
                     )

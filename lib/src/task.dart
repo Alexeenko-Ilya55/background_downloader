@@ -745,7 +745,7 @@ final class DownloadTask extends Task {
     try {
       final response = await DesktopDownloader.httpClient
           .head(Uri.parse(url), headers: headers);
-      if ([200, 201, 202, 203, 204, 205, 206].contains(response.statusCode)) {
+      if ([200, 201, 202, 203, 204, 205, 206,207,208,209,210].contains(response.statusCode)) {
         return taskWithFilenameBuilder(this, response.headers, unique);
       }
     } catch (e) {
@@ -762,7 +762,7 @@ final class DownloadTask extends Task {
     try {
       final response = await DesktopDownloader.httpClient
           .head(Uri.parse(url), headers: headers);
-      if ([200, 201, 202, 203, 204, 205, 206].contains(response.statusCode)) {
+      if ([200, 201, 202, 203, 204, 205, 206,207,208,209,210].contains(response.statusCode)) {
         return getContentLength(response.headers, this);
       }
     } catch (e) {

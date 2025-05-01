@@ -77,7 +77,7 @@ class ParallelDownloadTaskWorker(applicationContext: Context, workerParams: Work
                 enqueueJob = launch {
                     if (!isResume) {
                         // start the download by creating [Chunk]s and enqueuing chunk tasks
-                        if (connection.responseCode in listOf(200, 201, 202, 203, 204, 205, 206)) {
+                        if (connection.responseCode in listOf(200, 201, 202, 203, 204, 205, 206,207,208,209,210)) {
                             // if no filename is set, get from headers or url, update task
                             if (!task.hasFilename()) {
                                 task = task.withSuggestedFilenameFromResponseHeaders(

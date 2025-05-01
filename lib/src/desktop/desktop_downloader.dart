@@ -22,7 +22,7 @@ import '../task.dart';
 import '../utils.dart';
 import 'isolate.dart';
 
-const okResponses = [200, 201, 202, 203, 204, 205, 206];
+const okResponses = [200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210];
 
 /// Implementation of download functionality for desktop platforms
 ///

@@ -16,7 +16,7 @@ class DataTaskWorker(applicationContext: Context, workerParams: WorkerParameters
         connection: HttpURLConnection,
     ): TaskStatus {
         responseStatusCode = connection.responseCode
-        if (connection.responseCode in 200..206) {
+        if (connection.responseCode in 200..210) {
             extractResponseHeaders(connection.headerFields)
             extractContentType(connection.headerFields)
             // transfer the bytes from the server to the temp file

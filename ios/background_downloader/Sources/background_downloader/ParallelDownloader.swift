@@ -92,7 +92,7 @@ public class ParallelDownloader: NSObject {
     ///
     /// Returns false if start was unsuccessful
     public func start(responseStatusCode: Int, contentLengthFromHeader: Int64, responseHeaders: [AnyHashable: Any]) -> Bool {
-        if !(200...206).contains(responseStatusCode) {
+        if !(200...210).contains(responseStatusCode) {
             os_log("TaskId %@ returned response code %d", log: log, type: .info, parentTask.taskId, responseStatusCode)
             return false
         }

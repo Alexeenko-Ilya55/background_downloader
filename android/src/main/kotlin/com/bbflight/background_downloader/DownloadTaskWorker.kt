@@ -69,7 +69,7 @@ class DownloadTaskWorker(applicationContext: Context, workerParams: WorkerParame
         connection: HttpURLConnection,
     ): TaskStatus {
         responseStatusCode = connection.responseCode
-        if (connection.responseCode in 200..206) {
+        if (connection.responseCode in 200..210) {
             // determine if we are using Uri or not.  Uri means pause/resume not allowed
             val directoryUri = UriUtils.uriFromStringValue(task.directory)
             val usesUri = directoryUri != null

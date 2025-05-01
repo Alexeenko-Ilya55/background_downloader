@@ -164,7 +164,7 @@ public class UrlSessionDelegate : NSObject, URLSessionDelegate, URLSessionDownlo
         // for download tasks, this is done in urlSession(downloadTask:, didFinishDownloadingTo:)
         if isUploadTask(task: bgdTask) {
             let taskException = TaskException(type: .httpResponse, httpResponseCode: responseStatusCode, description: responseStatusDescription)
-            let finalStatus = (200...206).contains(responseStatusCode)
+            let finalStatus = (200...210).contains(responseStatusCode)
             ? TaskStatus.complete
             : responseStatusCode == 404
             ? TaskStatus.notFound
@@ -319,7 +319,7 @@ public class UrlSessionDelegate : NSObject, URLSessionDelegate, URLSessionDownlo
             updateNotification(task: task, notificationType: .error, notificationConfig: notificationConfig)
             return
         }
-        if !(200...206).contains(response.statusCode)   {
+        if !(200...210).contains(response.statusCode)   {
             os_log("TaskId %@ returned response code %d", log: log,  type: .info, task.taskId, response.statusCode)
             let responseBody = readFile(url: location)
             processStatusUpdate(task: task, status: TaskStatus.failed, taskException: TaskException(type: .httpResponse, httpResponseCode: response.statusCode, description: responseBody?.isEmpty == false ? responseBody! : HTTPURLResponse.localizedString(forStatusCode: response.statusCode)))
